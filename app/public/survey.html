@@ -17,7 +17,7 @@
   <body class="container">
     <h2>Survey Questions</h2>
     <hr />
-    <form method="POST" action="/api/" class="pb-3">
+    <form class="pb-3">
       <div class="form-group">
         <label for="nameInput">Name (Required)</label>
         <input
@@ -69,8 +69,63 @@
           <label for="question10">When someone does wrong to you, you always think of a way to get them back.</label>
           <input type="range" class="custom-range" min="0" max="5" id="question10" name="10">
       </div>
-      <button class="btn btn-success btn-lg btn-block">Submit</button>
+      <button id="subButton" class="btn btn-success btn-lg btn-block">Submit</button>
       </div>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">You matched with:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script>
+        //method="POST" action="/api/" 
+        document.getElementById('subButton').addEventListener('click', (e)=>{
+          e.preventDefault();
+          let options = {};
+
+          options["userName"] = document.getElementById("nameInput").value;
+          options["pictureName"] = document.getElementById("pictureInput").value;
+
+          for(let i = 1; i < 11; i++){
+            let value = document.getElementById("question"+i).value;
+            options[i] = value;
+          }
+
+          fetch('/api/', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(options)
+          }).then(res => res.json())
+          .then(handleReturnData)
+        })
+
+
+        function handleReturnData(data){
+          console.log(data);
+          document.querySelector('.modal-body').innerHTML += `<h2>${data.name}</h2>`;
+          document.querySelector('.modal-body').innerHTML += `<img class="img-thumbnail" src="${data.photo}"></img>`;
+          $('#myModal').modal('toggle');
+        }
+      
+      </script>
     </form>
   </body>
 </html>

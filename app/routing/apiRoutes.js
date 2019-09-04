@@ -16,11 +16,10 @@ router.get('/previous', (req, res)=> {
 
 // update app from survey page
 router.post('/', (req, res)=>{
-  
+  console.log(req.body);
+
+  res.json(friends[0]);
 })
 
-router.post('/previous', (req, res) => {
-  
-})
 
 module.exports = router;
