@@ -54,7 +54,7 @@
    
 
     <script>
-      fetch("./api/previous")
+      fetch("/api/previous")
         .then(res => res.json())
         .then((data)=>mountPrevious(JSON.parse(data)));
 

@@ -5,7 +5,7 @@ const {previous, friends}  = require('../data/friends.js');
 
 // display json of all possible friends
 router.get('/', (req, res)=>{
-    res.send('hi')
+    res.json(friends);
 })
 
 // get previous matches
@@ -15,11 +15,11 @@ router.get('/previous', (req, res)=> {
 })
 
 // update app from survey page
-router.post('/', (req, res)=>{
+router.post('/', (req, res)=>{ 
   // create a user
   let user = processData(req.body);
   // get a match based on user
-  let match = getMatch(req.body);
+  let match = getMatch(user);
   // add user to friends list
   friends.push(user);
   // add match to previous matched list
@@ -47,6 +47,33 @@ function processData(data){
 }
 
 
-function getMatch(data){
-  
+function getMatch(user){
+  // use a variance algorithm the friends scores that are closest to zero should be matched
+  let variance = [];
+  friends.forEach(friend => {
+
+     variance.push(compareArray(user.scores, friend.scores)); 
+  })
+  let indexOfMatch = 0;
+  // check each variance total to see which is closest to 0
+  variance.forEach((item, index) => {
+     let currentMatch = variance[indexOfMatch];
+     if(item >= currentMatch){
+       indexOfMatch = index;
+     }
+  })
+
+  // return the selected friend
+  return friends[indexOfMatch];
+}
+
+// compare both arrays
+function compareArray(arr1, arr2){
+    perfectScore = (arr2.length * arr2.length)
+    let total = 0;
+    for(let i = 0; i < arr1.length; i++){
+      total += (parseInt(arr1[i]) + parseInt(arr2[i]));
+    }
+    console.log(perfectScore - total)
+    return perfectScore - total;
 }
