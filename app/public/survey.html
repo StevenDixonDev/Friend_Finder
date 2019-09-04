@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <title>Survey</title>
+  </head>
+  <body class="container">
+    <h2>Survey Questions</h2>
+    <hr />
+    <form method="POST" action="/api/" class="pb-3">
+      <div class="form-group">
+        <label for="nameInput">Name (Required)</label>
+        <input
+          class="form-control"
+          id="nameInput"
+          placeholder=""
+          name="userName"
+          required
+        />
+        <label for="pictureInput">Link to Picture (Required)</label>
+        <input
+          class="form-control"
+          id="pictureInput"
+          placeholder=""
+          name="pictureName"
+          required
+        />
+      </div>
+      <hr />
+      <div class="form-group">
+          <h3>Question 1</h3>
+          <label for="question1">You can always count on your comfort food.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question1" name="1">
+          <h3>Question 2</h3>
+          <label for="question2">You love to swim.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question2" name="2">
+          <h3>Question 3</h3>
+          <label for="question3">It is difficult for you to relate to other's feelings.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question3" name="3">
+          <h3>Question 4</h3>
+          <label for="question4">You aspire to fix other peoples problems.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question4" name="4">
+          <h3>Question 5</h3>
+          <label for="question5">Music is a big part of your life.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question5" name="5">
+          <h3>Question 6</h3>
+          <label for="question6">You are quick to anger.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question6" name="6">
+          <h3>Question 7</h3>
+          <label for="question7">There is nothing you can't do if you put your mind to it.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question7" name="7">
+          <h3>Question 8</h3>
+          <label for="question8">Given the opportunity to do the right thing, you would.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question8" name="8">
+          <h3>Question 9</h3>
+          <label for="question9">Your faith is a big part of your life.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question9" name="9">
+          <h3>Question 10</h3>
+          <label for="question10">When someone does wrong to you, you always think of a way to get them back.</label>
+          <input type="range" class="custom-range" min="0" max="5" id="question10" name="10">
+      </div>
+      <button class="btn btn-success btn-lg btn-block">Submit</button>
+      </div>
+    </form>
+  </body>
+</html>
