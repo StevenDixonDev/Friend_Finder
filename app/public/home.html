@@ -71,10 +71,10 @@
       fetch("/api/previous")
         .then(res => res.json())
         .then((data)=>mountPrevious(JSON.parse(data)));
-        
+
       function mountPrevious(data) {
         const mount = document.getElementById('pre');
-        data.forEach(item => {
+        data.slice(data.length-10, data.length).forEach(item => {
           pre.innerHTML += `<li class="list-group-item">${item.name} <i class="far fa-heart text-danger"></i> ${item.match}</li>`;
         })
       }

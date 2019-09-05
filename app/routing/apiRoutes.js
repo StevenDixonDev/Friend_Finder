@@ -82,10 +82,10 @@ function compareArray(arr1, arr2){
         score *= -1;
       }
       // if the score is within one point the algorithm awards 1 point
-      if(score <= 1){
+      if(score === 0){
         total += 1;
       }    
-    })
+    }) 
     // return the total
     return total;
 }

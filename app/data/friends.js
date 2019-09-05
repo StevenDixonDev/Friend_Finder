@@ -2,12 +2,12 @@ const friends = [
   {
     "name": "Winnie the Pooh",
     "photo": "https://lumiere-a.akamaihd.net/v1/images/c94eed56a5e84479a2939c9172434567c0147d4f.jpeg",
-    "scores": [5,1,1,1,2,1,1,5,1,1]
+    "scores": [5,2,2,2,2,1,1,5,1,1]
   },
   {
     "name": "Michael Phelps",
     "photo": "https://cdn.cnn.com/cnnnext/dam/assets/160810025659-phelps-exlarge-169.jpg",
-    "scores": [1,5,1,1,1,1,1,3,2,2]
+    "scores": [1,5,3,1,2,1,1,3,2,2]
   },
   {
     "name": "Jason Voorhees",
@@ -17,12 +17,12 @@ const friends = [
   {
     "name": "Dr. ZoidBerg",
     "photo": "https://comedycentral.mtvnimages.com/images/shows/Futurama/Videos/web_exclusives/futurama_mashup_zoidberg_v6.jpg?quality=0.85&width=480&height=271&crop=true",
-    "scores": [1,5,3,5,1,2,1,2,1,2]
+    "scores": [1,5,3,5,1,2,1,2,2,2]
   },
   {
     "name": "Alvin the chipmunk",
     "photo": "https://pbs.twimg.com/profile_images/1075013889312448514/LPyAN1Z8.jpg",
-    "scores": [3,1,1,1,5,2,1,2,1,1]
+    "scores": [3,2,2,1,5,2,1,2,2,1]
   },
   {
     "name": "Donald Duck",
@@ -32,12 +32,12 @@ const friends = [
   {
     "name": "Phineas Flyn",
     "photo": "https://pbs.twimg.com/profile_images/715614114953998336/l3pZ06rR_400x400.jpg",
-    "scores": [1,1,1,1,3,1,5,5,1,1]
+    "scores": [2,1,2,1,3,2,5,5,4,1]
   },
   {
     "name": "The Brain",
     "photo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/PinkyandtheBrain.TheBrain.png/160px-PinkyandtheBrain.TheBrain.png",
-    "scores": [1,1,1,1,1,4,5,2,1,5]
+    "scores": [1,1,2,2,1,4,5,2,1,5]
   },
   {
     "name": "Bender Rodriquez",
@@ -53,12 +53,12 @@ const friends = [
     "name": "Eric Cartman",
     "photo": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fewedit.files.wordpress.com%2F2015%2F01%2Fcartman_l.jpg&w=400&c=sc&poi=face&q=85",
     "scores": [4,1,2,1,2,4,3,1,1,5]
-  }
+  } 
 ];
 
 const previousMatch = [
-  {
-    "name": "Michael Myers",
+  { 
+    "name": "Michael Myers", 
     "match": "The Brain"
   }
 ];

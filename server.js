@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
-// have express use api as the base route
+// have express use api as the base route 
 app.use('/api', apiRoute);
 // have express use html as the base route 
 app.use('/html', htmlRoute);
@@ -19,7 +19,7 @@ app.use('/html', htmlRoute);
 app.get('*', (req, res)=>{
     res.redirect('/html');
 })
-
+ 
 //create a server
 app.listen(PORT, ()=>{
   console.log('Server listening on port ' + PORT);
