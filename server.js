@@ -8,7 +8,7 @@ const app = express();
 // define listening port use env if present
 const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.json());
 // have express use api as the base route
 app.use('/api', apiRoute);
@@ -18,4 +18,4 @@ app.use('/html', htmlRoute);
 //create a server
 app.listen(PORT, ()=>{
   console.log('Server listening on port ' + PORT);
-})
+});
