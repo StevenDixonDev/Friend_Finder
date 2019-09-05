@@ -41,14 +41,13 @@
     </div>
     <section class="container mb-3">
       <div class="row">
-        <div class="col-sm-12 col-md-6 ">
+        <div class="col-sm-12 col-md-6 order-1">
           <h6><i class="fas fa-users text-danger"></i> Previous Matches:</h6>
           <ul id="pre" class="list-group"></ul>
         </div>
-        <div class="col-sm-12 col-md-6 pt-sm-3 pt-md-0">
+        <div class="col-sm-12 col-md-6 pt-sm-3 pt-md-0 order-0">
             <h6><i class="far fa-star text-danger"></i> Our Goal</h6>
             <div class="border rounded p-2">
-              
               <p>We at Friend Finder&trade; strive to make your need for companionship our #1 priority. Our goal is to make sure all of our customer are matched perfectly.</p>
               <p>Our patented 10 question survey was created by the top behavioral scientist in Switzerland. This test is guaranteed to accurately define a users interests and personality type.</p>
               <p>We guarantee our <i>super secret friend finder algorithm</i>&reg; will find the perfect for you every time or your money back.</p>
@@ -72,7 +71,7 @@
       fetch("/api/previous")
         .then(res => res.json())
         .then((data)=>mountPrevious(JSON.parse(data)));
-
+        
       function mountPrevious(data) {
         const mount = document.getElementById('pre');
         data.forEach(item => {
