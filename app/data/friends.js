@@ -58,8 +58,8 @@ const friends = [
 
 const previousMatch = [
   {
-    "name": "SpongeBob",
-    "match": "Steven"
+    "name": "Michael Myers",
+    "match": "The Brain"
   }
 ];
 

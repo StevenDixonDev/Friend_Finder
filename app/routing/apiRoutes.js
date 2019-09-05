@@ -32,6 +32,7 @@ router.post('/', (req, res)=>{
 module.exports = router;
 
 function processData(data){
+  // create an empty user
   let user = {}
   // assign a name
   user['name'] = data.userName;
@@ -42,6 +43,7 @@ function processData(data){
   for(let i = 1; i < 11; i++){
     arr.push(data[i]);
   }
+  // give user a score  arr
   user["scores"] = arr;
   return user;
 }
@@ -51,29 +53,39 @@ function getMatch(user){
   // use a variance algorithm the friends scores that are closest to zero should be matched
   let variance = [];
   friends.forEach(friend => {
-
      variance.push(compareArray(user.scores, friend.scores)); 
-  })
+  });
   let indexOfMatch = 0;
   // check each variance total to see which is closest to 0
   variance.forEach((item, index) => {
      let currentMatch = variance[indexOfMatch];
-     if(item >= currentMatch){
+     if(item > currentMatch){
        indexOfMatch = index;
      }
-  })
-
+  });
   // return the selected friend
   return friends[indexOfMatch];
 }
 
 // compare both arrays
 function compareArray(arr1, arr2){
-    perfectScore = (arr2.length * arr2.length)
+    // tabulate the perfect score
+    let perfectScore = arr1.length + arr2.length;
+    // create a storage for the score of the match
     let total = 0;
-    for(let i = 0; i < arr1.length; i++){
-      total += (parseInt(arr1[i]) + parseInt(arr2[i]));
-    }
-    console.log(perfectScore - total)
-    return perfectScore - total;
+    // loop through arr1
+    arr1.forEach((user, index) => {
+      // subtract users score from current friend score
+      let score = parseInt(user) - parseInt(arr2[index]);
+      // if score is negative flip it so that it is positive
+      if(score < 0){
+        score *= -1;
+      }
+      // if the score is within one point the algorithm awards 1 point
+      if(score <= 1){
+        total += 1;
+      }    
+    })
+    // return the total
+    return total;
 }
