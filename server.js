@@ -15,6 +15,11 @@ app.use('/api', apiRoute);
 // have express use html as the base route 
 app.use('/html', htmlRoute);
 
+// redirect unknown routes to the home page 
+app.get('*', (req, res)=>{
+    res.redirect('/html');
+})
+
 //create a server
 app.listen(PORT, ()=>{
   console.log('Server listening on port ' + PORT);
